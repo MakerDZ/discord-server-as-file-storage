@@ -10,6 +10,7 @@ export default async function deleteBucketController(req : Request, res : Respon
        }
        res.status(200).send({ message: 'Bucket deleted successfully'});
     }catch(error){
-        console.log(error);
+        console.error("Error occurred while deleting bucket : ", error);
+        res.status(500).json({ error: "Failed to delete bucket" });
     }
 }
